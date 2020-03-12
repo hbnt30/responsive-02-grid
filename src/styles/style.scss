@@ -1,0 +1,39 @@
+// @import "./vendors/reset.scss";
+// @import "./config/colors.scss";
+
+$types: alkaliMetal lanthanide nobleGas transitionMetal postTransitionMetal
+  alkalineEarthMetal actinide metalloid otherNonMetal;
+
+body {
+  display: grid;
+  grid-auto-rows: 150px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+.el {
+  background: lightgray;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
+}
+.el p {
+  margin: 5px;
+  font-size: 1.2rem;
+}
+.el__symbol {
+  margin: 1rem;
+  font-size: 1.5rem;
+}
+
+@each $type in $types {
+  .el--#{$type} {
+    background-color: hsl(
+      index($types, $type) * (360deg / length($types)),
+      50%,
+      75%
+    );
+  }
+}
