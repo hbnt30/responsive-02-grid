@@ -53,4 +53,16 @@ body {
     margin: 2px;
     font-size: 10px;
   }
+
+  @for $i from 1 through 7 {
+    .el[data-period="#{$i}"] {
+      grid-row: $i;
+    }
+  }
+
+  @for $i from 1 through 18 {
+    .el[data-group="#{$i}"] {
+      grid-column: $i;
+    }
+  }
 }
