@@ -1,5 +1,7 @@
 // @import "./vendors/reset.scss";
 // @import "./config/colors.scss";
+// @import "./vendors/reset.scss";
+@import "./mixin.scss";
 
 $types: alkaliMetal lanthanide nobleGas transitionMetal postTransitionMetal
   alkalineEarthMetal actinide metalloid otherNonMetal;
@@ -21,7 +23,7 @@ body {
 }
 .el p {
   margin: 5px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 .el__symbol {
   margin: 1rem;
@@ -35,5 +37,20 @@ body {
       50%,
       75%
     );
+  }
+}
+
+@include large {
+  body {
+    display: grid;
+    grid-auto-rows: 150px;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+  .el {
+    margin: 2px;
+  }
+  .el p:last-child {
+    margin: 2px;
+    font-size: 10px;
   }
 }
